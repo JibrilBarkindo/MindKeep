@@ -1,2 +1,2 @@
 # MindKeep2
- testing creating new repo 
+ Uni project for mobile platforms. Diary app with some gamafication elements introduced
