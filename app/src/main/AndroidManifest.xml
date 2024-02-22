@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MindKeep"
         tools:targetApi="31">
         <activity
+            android:name=".ChallengesPage"
+            android:exported="false" />
+        <activity
             android:name=".Scrapbook"
             android:exported="false" />
         <activity
