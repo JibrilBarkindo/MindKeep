@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:gravity="center"
+    android:padding="16dp"
+
+    tools:context=".Menu_screen">
+
+    <Button
+        android:id="@+id/Diary_btn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="@color/white"
+        android:onClick="DiaryButtonClicked"
+        android:fontFamily="@font/architectsdaughter"
+        android:padding="18dp"
+        android:text="Diary"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/flower_btn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/white"
+        android:onClick="flowerButtonClicked"
+        android:padding="18dp"
+        android:text="Flower"
+        android:fontFamily="@font/architectsdaughter"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/Challenges_btn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:backgroundTint="@color/white"
+        android:onClick="challengesButtonClicked"
+        android:fontFamily="@font/architectsdaughter"
+        android:padding="18dp"
+        android:text="Challenges"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/Settings_btn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:backgroundTint="@color/white"
+        android:onClick="settingsButtonClicked"
+        android:padding="18dp"
+        android:text="Settings"
+        android:fontFamily="@font/architectsdaughter"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+</RelativeLayout>

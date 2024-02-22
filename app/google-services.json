@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "350370924010",
+    "project_id": "mindkeep-6814b",
+    "storage_bucket": "mindkeep-6814b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350370924010:android:cbb9f525b09fb355eb9e93",
+        "android_client_info": {
+          "package_name": "com.example.mindkeep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTvKXUSEXDpTG2dygPOEhycxocgC82Cnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundlightbluenogradient"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".DiaryScreen"
+    tools:ignore="ExtraText">
+
+<ImageView
+    android:id="@+id/profile"
+    android:layout_width="140dp"
+    android:layout_height="140dp"
+    android:layout_marginStart="250dp"
+    android:layout_marginTop="-10dp"
+    android:src="@drawable/profile"
+    />
+
+    <EditText
+        android:id="@+id/diaryinput"
+        android:layout_marginTop="130dp"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:background="@drawable/diaryinput"
+        android:padding="16dp"
+        android:hint="Whats on your mind.."
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:fontFamily="@font/architectsdaughter"
+        />
+
+    <ImageView
+        android:id="@+id/uploadicon"
+        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_marginTop="385dp"
+        android:src="@drawable/uploadicon"
+        android:onClick="UploadIconClicked"
+        android:contentDescription="upload photo or use camera"
+        />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:text="upload photo/video"
+            android:textColor="#000000"
+            android:fontFamily="@font/architectsdaughter"
+            android:layout_marginTop="425dp"
+            android:layout_marginStart="55dp"
+            />
+
+
+
+
+    <TextView
+        android:id="@+id/mood_slider_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="175dp"
+        android:layout_marginTop="570dp"
+        android:text="0"
+        android:fontFamily="@font/architectsdaughter"
+        android:textSize="50sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="490dp"
+        android:text="Rate your mood"
+        android:textSize="35dp"
+        android:fontFamily="@font/architectsdaughter"
+        android:layout_marginStart="50dp"
+        />
+
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/mood_rating_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="540dp"
+        android:contentDescription="@string/mood_rating_slider_description"
+        android:valueFrom="0"
+        android:valueTo="100" />
+
+    <TextView
+        android:id="@+id/calendartext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:fontFamily="@font/architectsdaughter"
+        android:layout_marginTop="30dp"
+        android:textColor="#000000"
+        />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/confirmtick"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="click this to confirm entry"
+        />
+</RelativeLayout>
