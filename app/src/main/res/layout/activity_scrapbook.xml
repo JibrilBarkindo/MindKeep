@@ -1,13 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundlightbluenogradient"
-    tools:context=".Scrapbook">
+    android:padding="16dp">
 
+    <!-- Calendar View -->
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
 
+    <!-- Diary Entry Date -->
+    <TextView
+        android:id="@+id/tvDiaryDate"
+        android:layout_below="@id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Monday 1st Feb,2017"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Diary Entry Text -->
+
+    <!-- Mood Rating -->
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/tvDiaryDate"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="163dp"
+        android:layout_toRightOf="@id/tvDiaryEntry"
+        android:src="@drawable/uploadicon"/>
+
+    <TextView
+        android:id="@+id/tvDiaryEntry"
+        android:layout_width="200dp"
+        android:layout_height="500dp"
+        android:layout_below="@id/tvDiaryDate"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/textview_border"
+        android:padding="8dp"
+        android:scrollbars="vertical"
+        android:text="Lorem ipsum dolor sit
+        amet sjwsnj wjndwjnwnjwq kqjwdnqjdq wjdqwndq jk dnqwj dkqwd jqwd qwjdkqw dkw jdqkf qwkf qkf..."
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvMoodRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDiaryDate"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="19dp"
+        android:fontFamily="@font/architectsdaughter"
+        android:text="Mood rating\n         87"
+        android:textSize="25sp" />
 
 
 </RelativeLayout>
