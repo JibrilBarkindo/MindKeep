@@ -10,6 +10,11 @@
     tools:context=".DiaryScreen"
     tools:ignore="ExtraText">
 
+    <TextureView
+        android:id="@+id/textureView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 <ImageView
     android:id="@+id/profile"
     android:layout_width="140dp"
@@ -18,6 +23,8 @@
     android:layout_marginTop="-10dp"
     android:src="@drawable/profile"
     />
+
+
 
     <EditText
         android:id="@+id/diaryinput"
@@ -35,28 +42,28 @@
         android:fontFamily="@font/architectsdaughter"
         />
 
-    <ImageView
-        android:id="@+id/uploadicon"
+
+
+
+    <ImageButton
+        android:id="@+id/btnCapture"
         android:layout_height="100dp"
         android:layout_width="50dp"
-        android:layout_marginTop="385dp"
+        android:layout_marginTop="390dp"
         android:src="@drawable/uploadicon"
-        android:onClick="UploadIconClicked"
         android:contentDescription="upload photo or use camera"
         />
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:textSize="20dp"
-            android:text="upload photo/video"
-            android:textColor="#000000"
-            android:fontFamily="@font/architectsdaughter"
-            android:layout_marginTop="425dp"
-            android:layout_marginStart="55dp"
-            />
 
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="425dp"
+        android:fontFamily="@font/architectsdaughter"
+        android:text="upload photo/video"
+        android:textColor="#000000"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/mood_slider_value"
@@ -98,6 +105,7 @@
         />
 
     <ImageButton
+        android:id="@+id/confirm_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/confirmtick"
@@ -105,5 +113,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"
         android:contentDescription="click this to confirm entry"
+
         />
 </RelativeLayout>

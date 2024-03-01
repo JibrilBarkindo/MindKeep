@@ -18,4 +18,8 @@ public class Menu_screen extends AppCompatActivity {
         Intent intent = new Intent(this, DiaryScreen.class);
         startActivity(intent);
     }
+    public void scrapbookButtonClicked (View view) {
+        Intent intent = new Intent(this, Scrapbook.class);
+        startActivity(intent);
+    }
 }

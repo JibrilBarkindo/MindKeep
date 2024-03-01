@@ -9,6 +9,23 @@
     android:padding="16dp"
 
     tools:context=".Menu_screen">
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+
+    />
+
+    <ImageView
+        android:id="@+id/scrapbook_widget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-100dp"
+
+        android:src="@drawable/baseline_calendar_month_24"
+
+
+        />
 
     <Button
         android:id="@+id/Diary_btn"
@@ -48,14 +65,14 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
     <Button
-        android:id="@+id/Settings_btn"
+        android:id="@+id/scrapbook"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="240dp"
         android:backgroundTint="@color/white"
-        android:onClick="settingsButtonClicked"
+        android:onClick="scrapbookButtonClicked"
         android:padding="18dp"
-        android:text="Settings"
+        android:text="Scrapbook"
         android:fontFamily="@font/architectsdaughter"
         android:textColor="@color/black"
         android:textSize="20sp" />
