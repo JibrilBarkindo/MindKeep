@@ -65,6 +65,16 @@ public class DiaryScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_screen);
 
+        mood_rating_slider = findViewById(R.id.mood_rating_slider);
+        mood_slider_value = findViewById(R.id.mood_slider_value);
+
+
+        mood_rating_slider.addOnChangeListener(new Slider.OnChangeListener() {
+            @Override
+            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
+                mood_slider_value.setText(Float.toString(value));
+            }
+        });
 
         TextView calendartext = findViewById(R.id.calendartext);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy ", Locale.getDefault());
@@ -88,12 +98,12 @@ public class DiaryScreen extends AppCompatActivity {
     private void saveDiaryEntry() {
         EditText diaryContentEditText = findViewById(R.id.diaryinput);
         String diaryContent = diaryContentEditText.getText().toString();
-
+        float moodRating = mood_rating_slider.getValue();
 
         Map<String, Object> diaryEntry = new HashMap<>();
         diaryEntry.put("date", new Date());
         diaryEntry.put("content", diaryContent);
-
+        diaryEntry.put("mood", moodRating);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -117,16 +127,6 @@ public class DiaryScreen extends AppCompatActivity {
                     }
                 });
 
-        mood_rating_slider = findViewById(R.id.mood_rating_slider);
-        mood_slider_value = findViewById(R.id.mood_slider_value);
-
-
-        mood_rating_slider.addOnChangeListener(new Slider.OnChangeListener() {
-            @Override
-            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
-                mood_slider_value.setText(Float.toString(value));
-            }
-        });
 
         textureView = findViewById(R.id.textureView);
         textureView.setSurfaceTextureListener(surfaceTextureListener);
