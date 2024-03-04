@@ -96,18 +96,19 @@ public class DiaryScreen extends AppCompatActivity {
     }
 
     private void saveDiaryEntry() {
-        EditText diaryContentEditText = findViewById(R.id.diaryinput);
+        EditText diaryContentEditText = findViewById(R.id.diaryinput); // Ensure this ID matches your layout
         String diaryContent = diaryContentEditText.getText().toString();
-        float moodRating = mood_rating_slider.getValue();
+        Slider moodRatingSlider = findViewById(R.id.mood_rating_slider); // Ensure this ID matches your layout
+        float moodRating = moodRatingSlider.getValue();
 
         Map<String, Object> diaryEntry = new HashMap<>();
-        diaryEntry.put("date", new Date());
-        diaryEntry.put("content", diaryContent);
-        diaryEntry.put("mood", moodRating);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String dateString = sdf.format(new Date()); // Use the current date
+        diaryEntry.put("date", dateString);
+        diaryEntry.put("content", diaryContent); // Use the user's actual diary content
+        diaryEntry.put("mood", moodRating); // Use the actual mood rating
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-
         db.collection("diaryEntries")
                 .add(diaryEntry)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -115,8 +116,6 @@ public class DiaryScreen extends AppCompatActivity {
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d("DiaryActivity", "Diary entry added with ID: " + documentReference.getId());
                         Toast.makeText(DiaryScreen.this, "Entry saved!", Toast.LENGTH_SHORT).show();
-
-
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -128,7 +127,8 @@ public class DiaryScreen extends AppCompatActivity {
                 });
 
 
-        textureView = findViewById(R.id.textureView);
+
+    textureView = findViewById(R.id.textureView);
         textureView.setSurfaceTextureListener(surfaceTextureListener);
 
         ImageButton captureButton = findViewById(R.id.btnCapture);
