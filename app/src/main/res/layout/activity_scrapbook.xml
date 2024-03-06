@@ -23,7 +23,8 @@
         android:fontFamily="@font/architectsdaughter"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         android:paddingTop="4dp"
-        android:paddingBottom="4dp" />
+        android:paddingBottom="4dp"
+        android:gravity="center" />
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -83,6 +84,7 @@
         android:text="Mood rating\n         87"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDiaryDate" />
+        app:layout_constraintTop_toBottomOf="@id/tvDiaryDate"
+        app:layout_constraintLeft_toRightOf="@id/tvDiaryEntry"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

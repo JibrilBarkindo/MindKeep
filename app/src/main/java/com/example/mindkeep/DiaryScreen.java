@@ -101,7 +101,10 @@ public class DiaryScreen extends AppCompatActivity {
         float moodRating = mood_rating_slider.getValue();
 
         Map<String, Object> diaryEntry = new HashMap<>();
-        diaryEntry.put("date", new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String dateString = sdf.format(new Date()); // Use the current date
+        diaryEntry.put("date", dateString);
+
         diaryEntry.put("content", diaryContent);
         diaryEntry.put("mood", moodRating);
 
