@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
+    android:background="@drawable/background1"
     android:gravity="center"
-    android:padding="16dp"
+
     tools:context=".StartScreen">
 
     <Button
         android:id="@+id/signup_btn"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="455dp"
+        android:layout_marginStart="25dp"
         android:backgroundTint="@color/white"
         android:onClick="signupButtonClicked"
         android:padding="18dp"
@@ -24,10 +25,10 @@
         />
     <Button
         android:id="@+id/login_btn"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="380dp"
-
+android:layout_marginStart="25dp"
         android:backgroundTint="@color/white"
         android:onClick="loginButtonClicked"
         android:padding="18dp"

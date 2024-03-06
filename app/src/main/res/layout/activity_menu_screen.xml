@@ -1,80 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
-    android:gravity="center"
-    android:padding="16dp"
-
+    android:background="@drawable/flowerbackround2"
     tools:context=".Menu_screen">
-<FrameLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
 
 
-    />
 
     <ImageView
-        android:id="@+id/scrapbook_widget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp"
+        android:id="@+id/profile"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:src="@drawable/baseline_calendar_month_24"
-
-
-        />
 
     <Button
         android:id="@+id/Diary_btn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:backgroundTint="@color/white"
-        android:onClick="DiaryButtonClicked"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="470dp"
+        android:backgroundTint="@color/blue"
         android:fontFamily="@font/architectsdaughter"
-        android:padding="18dp"
+        android:onClick="DiaryButtonClicked"
         android:text="Diary"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+       />
+
+    <Button
+        android:id="@+id/Challenges_btn"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="390dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/architectsdaughter"
+        android:onClick="challengesButtonClicked"
+        android:text="Challenges"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/flower_btn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:backgroundTint="@color/white"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="310dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/architectsdaughter"
         android:onClick="flowerButtonClicked"
-        android:padding="18dp"
         android:text="Flower"
-        android:fontFamily="@font/architectsdaughter"
         android:textColor="@color/black"
-        android:textSize="20sp" />
-    <Button
-        android:id="@+id/Challenges_btn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:backgroundTint="@color/white"
-        android:onClick="challengesButtonClicked"
-        android:fontFamily="@font/architectsdaughter"
-        android:padding="18dp"
-        android:text="Challenges"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+
     <Button
         android:id="@+id/scrapbook"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:backgroundTint="@color/white"
-        android:onClick="scrapbookButtonClicked"
-        android:padding="18dp"
-        android:text="Scrapbook"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="230dp"
+        android:backgroundTint="@color/blue"
         android:fontFamily="@font/architectsdaughter"
+        android:onClick="scrapbookButtonClicked"
+        android:text="Scrapbook"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/beige_box"
+        android:layout_width="199dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/beige_box"
+        android:fontFamily="@font/architectsdaughter"
+        android:padding="8dp"
+        android:text="   Tip of the day: \n\n  Take a short walk \n  daily to boost your \n  mood and improve \n  your cardiovascular \n   health."
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

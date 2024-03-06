@@ -19,8 +19,8 @@
     android:id="@+id/profile"
     android:layout_width="140dp"
     android:layout_height="140dp"
-    android:layout_marginStart="250dp"
-    android:layout_marginTop="-10dp"
+    android:layout_marginStart="260dp"
+    android:layout_marginTop="-8dp"
     android:src="@drawable/profile"
     />
 
@@ -47,9 +47,9 @@
 
     <ImageButton
         android:id="@+id/btnCapture"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_width="50dp"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="410dp"
         android:src="@drawable/uploadicon"
         android:contentDescription="upload photo or use camera"
         />
@@ -70,14 +70,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="590dp"
         android:text="0"
         android:fontFamily="@font/architectsdaughter"
         android:textSize="50sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="510dp"
         android:text="Rate your mood"
         android:textSize="35dp"
         android:fontFamily="@font/architectsdaughter"
@@ -89,7 +89,7 @@
         android:id="@+id/mood_rating_slider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="570dp"
         android:contentDescription="@string/mood_rating_slider_description"
         android:valueFrom="0"
         android:valueTo="100" />

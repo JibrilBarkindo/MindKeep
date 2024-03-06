@@ -2,19 +2,39 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundlightbluenogradient"
-    android:padding="16dp">
+    android:padding="8dp">
+
+
+    <TextView
+        android:id="@+id/scrapbooktitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bluebox"
+        android:text="@string/scrapbook_title"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/architectsdaughter"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/calendar_colour"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="16dp" />
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvDiaryDate"
@@ -27,45 +47,42 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/architectsdaughter"
         android:text=" Monday 1st Feb,2017"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="125dp"
-        app:layout_constraintTop_toBottomOf="@id/tvDiaryDate"
-        app:layout_constraintStart_toEndOf="@id/tvDiaryEntry"
+        android:layout_width="137dp"
+        android:layout_height="177dp"
+        android:layout_marginTop="148dp"
+        android:background="@drawable/diaryentryborder"
+        android:src="@drawable/photoplaceholder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginTop="153dp"
-        android:src="@drawable/uploadicon"
-        android:background="@drawable/diaryentryborder"/>
+        app:layout_constraintTop_toBottomOf="@id/tvDiaryDate" />
 
     <TextView
         android:id="@+id/tvDiaryEntry"
-        android:layout_width="0dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="-3dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/diaryentryborder"
+        android:layout_width="211dp"
+        android:layout_height="286dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/diaryinput"
         android:fontFamily="@font/architectsdaughter"
         android:padding="8dp"
         android:scrollbars="vertical"
         android:text="Lorem ipsum dolor sit amet sjwsnj wjndwjnwnjwq kqjwdnqjdq wjdqwndq jk dnqwj dkqwd jqwd qwjdkqw dkw jdqkf qwkf qkf..."
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@id/tvMoodRating"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDiaryDate" />
 
     <TextView
         android:id="@+id/tvMoodRating"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvDiaryDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="5dp"
         android:fontFamily="@font/architectsdaughter"
         android:text="Mood rating\n         87"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDiaryDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
