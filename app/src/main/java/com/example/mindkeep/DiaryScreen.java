@@ -99,14 +99,15 @@ public class DiaryScreen extends AppCompatActivity {
         EditText diaryContentEditText = findViewById(R.id.diaryinput);
         String diaryContent = diaryContentEditText.getText().toString();
         float moodRating = mood_rating_slider.getValue();
+        int moodRatingAsInt = Math.round(moodRating);
+
 
         Map<String, Object> diaryEntry = new HashMap<>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        String dateString = sdf.format(new Date()); // Use the current date
+        String dateString = sdf.format(new Date());
         diaryEntry.put("date", dateString);
-
         diaryEntry.put("content", diaryContent);
-        diaryEntry.put("mood", moodRating);
+        diaryEntry.put("mood", moodRatingAsInt);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 

@@ -18,6 +18,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/volume"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
+    android:src="@drawable/baseline_volume_down_24"
+    app:layout_constraintTop_toBottomOf="@id/profile"
+    app:layout_constraintEnd_toEndOf="@id/profile"
+    app:layout_constraintStart_toStartOf="@id/profile" />
+
+
+
 
     <Button
         android:id="@+id/Diary_btn"
@@ -95,13 +107,15 @@
         android:background="@drawable/beige_box"
         android:fontFamily="@font/architectsdaughter"
         android:padding="8dp"
-        android:text="   Tip of the day: \n\n  Take a short walk \n  daily to boost your \n  mood and improve \n  your cardiovascular \n   health."
+        android:text="    Tip of the day: \n\n  Take a short walk \n  daily to boost your \n  mood and improve \n  your cardiovascular \n   health."
         android:textColor="#000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
