@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/profile"
-        android:layout_width="58dp"
+        android:layout_width="35dp"
         android:layout_height="54dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/profile"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,14 +22,26 @@
         android:id="@+id/volume"
         android:layout_width="37dp"
         android:layout_height="37dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="1dp"
     android:src="@drawable/baseline_volume_down_24"
     app:layout_constraintTop_toBottomOf="@id/profile"
     app:layout_constraintEnd_toEndOf="@id/profile"
     app:layout_constraintStart_toStartOf="@id/profile" />
 
 
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/logout"
+    app:layout_constraintTop_toBottomOf="@id/volume"
+    app:layout_constraintEnd_toEndOf="@id/volume"
+    app:layout_constraintStart_toStartOf="@id/volume"
+    android:padding="10dp"
+    android:id="@+id/logoutButton"
+    android:contentDescription="logout"
 
+
+    />
 
     <Button
         android:id="@+id/Diary_btn"

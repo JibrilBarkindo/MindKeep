@@ -15,7 +15,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-<ImageView
+    <ImageButton
+        android:id="@+id/btnCapture"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:layout_marginTop="410dp"
+        android:src="@drawable/uploadicon"
+        android:contentDescription="upload photo or use camera"
+        />
+
+
+    <ImageView
     android:id="@+id/profile"
     android:layout_width="140dp"
     android:layout_height="140dp"
@@ -45,14 +55,6 @@
 
 
 
-    <ImageButton
-        android:id="@+id/btnCapture"
-        android:layout_height="50dp"
-        android:layout_width="50dp"
-        android:layout_marginTop="410dp"
-        android:src="@drawable/uploadicon"
-        android:contentDescription="upload photo or use camera"
-        />
 
 
     <TextView

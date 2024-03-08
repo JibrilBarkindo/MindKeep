@@ -49,6 +49,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.core.content.ContextCompat;
 
 public class DiaryScreen extends AppCompatActivity {
 
@@ -59,11 +60,13 @@ public class DiaryScreen extends AppCompatActivity {
     TextView mood_slider_value;
     Slider mood_rating_slider;
 
+    private static final int REQUEST_CAMERA_PERMISSION = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_screen);
+
 
         mood_rating_slider = findViewById(R.id.mood_rating_slider);
         mood_slider_value = findViewById(R.id.mood_slider_value);
@@ -92,7 +95,17 @@ public class DiaryScreen extends AppCompatActivity {
 
 
         });
-
+        ImageButton captureButton = findViewById(R.id.btnCapture);
+        captureButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ActivityCompat.checkSelfPermission(DiaryScreen.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(DiaryScreen.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+                } else {
+                    openCamera(); // Implement this method based on your camera opening logic
+                }
+            }
+        });
     }
 
     private void saveDiaryEntry() {
@@ -133,21 +146,21 @@ public class DiaryScreen extends AppCompatActivity {
 
 
         textureView = findViewById(R.id.textureView);
-        textureView.setSurfaceTextureListener(surfaceTextureListener);
-
         ImageButton captureButton = findViewById(R.id.btnCapture);
         captureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Capture button click logic
-                if (cameraDevice != null) {
-                    captureImage();
-                    Log.e("testing", "buttonclicked");
+                if (ContextCompat.checkSelfPermission(DiaryScreen.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(DiaryScreen.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+                } else {
+                    openCamera();
                 }
             }
         });
     }
-    private final TextureView.SurfaceTextureListener surfaceTextureListener = new TextureView.SurfaceTextureListener() {
+    private final TextureView.SurfaceTextureListener textureListener = new TextureView.SurfaceTextureListener() {
+
+
         @Override
         public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
             // TextureView is available, perform camera setup here
@@ -170,42 +183,50 @@ public class DiaryScreen extends AppCompatActivity {
             // Handle surface texture update if needed
         }
     };
-
-    private void setupCamera(SurfaceTexture surfaceTexture, int width, int height) {
+    // Replace with this new method
+    private void openCamera() {
+        CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
-            surfaceTexture.setDefaultBufferSize(width, height);
-            Surface surface = new Surface(surfaceTexture);
-
-            CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-            String cameraId = manager.getCameraIdList()[0];
+            String cameraId = manager.getCameraIdList()[0]; // Assuming you want the first camera
             CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
-            StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-
-            // Choose an appropriate size for the ImageReader
-            Size imageSize = chooseOptimalSize(map.getOutputSizes(ImageFormat.JPEG), width, height);
-            imageReader = ImageReader.newInstance(imageSize.getWidth(), imageSize.getHeight(), ImageFormat.JPEG, 1);
-            imageReader.setOnImageAvailableListener(onImageAvailableListener, null);
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                return;
+                // Permission is not granted, you can ask for permission here or beforehand
+                return; // Do not proceed further without the permission
             }
+
             manager.openCamera(cameraId, new CameraDevice.StateCallback() {
                 @Override
                 public void onOpened(@NonNull CameraDevice camera) {
                     cameraDevice = camera;
-                    createCameraPreview(surface);
+
+                    // Here, instead of createCameraPreviewSession, we will call createCameraPreview
+                    // Assuming that textureView is already initialized and available
+                    if (textureView.isAvailable()) {
+                        SurfaceTexture surfaceTexture = textureView.getSurfaceTexture();
+                        assert surfaceTexture != null;
+                        surfaceTexture.setDefaultBufferSize(textureView.getWidth(), textureView.getHeight());
+                        Surface surface = new Surface(surfaceTexture);
+                        createCameraPreview(surface); // Call your existing createCameraPreview method
+                    }
+                    // If textureView isn't available yet, we set the SurfaceTextureListener so that
+                    // we can start the preview as soon as the view becomes available.
+                    else {
+                        textureView.setSurfaceTextureListener(textureListener);
+                    }
                 }
 
                 @Override
                 public void onDisconnected(@NonNull CameraDevice camera) {
-                    cameraDevice.close();
+                    camera.close();
                     cameraDevice = null;
                 }
 
                 @Override
                 public void onError(@NonNull CameraDevice camera, int error) {
-                    cameraDevice.close();
+                    camera.close();
                     cameraDevice = null;
+                    // Handle the error, for example, by showing a Toast or logging it
                 }
             }, null);
         } catch (CameraAccessException e) {
@@ -213,6 +234,35 @@ public class DiaryScreen extends AppCompatActivity {
         }
     }
 
+
+
+    private void setupCamera(SurfaceTexture surfaceTexture, int width, int height) {
+        // Adjusted setupCamera method without redundant permission checks
+        CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        try {
+            for (String cameraId : manager.getCameraIdList()) {
+                CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
+                // Check if this camera is the one we want to use
+                Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
+                if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
+                    continue; // Skip if it's a front facing camera.
+                }
+                StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+                if (map == null) {
+                    continue;
+                }
+                // Assume the size and format are suitable for your use case
+                Size imageSize = chooseOptimalSize(map.getOutputSizes(ImageFormat.JPEG), width, height);
+                imageReader = ImageReader.newInstance(imageSize.getWidth(), imageSize.getHeight(), ImageFormat.JPEG, 1);
+                // Your existing camera setup logic...
+                openCamera();
+                break; // Break out of the loop once camera is opened
+            }
+        } catch (CameraAccessException e) {
+            Toast.makeText(this, "Cannot access the camera.", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
     private Size chooseOptimalSize(Size[] choices, int width, int height) {
         // Add your logic to choose the best size based on your requirements
         // For simplicity, just return the first available size
@@ -336,4 +386,18 @@ public class DiaryScreen extends AppCompatActivity {
             }
         }
     };
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CAMERA_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission was granted, setup the camera
+                setupCamera(textureView.getSurfaceTexture(), textureView.getWidth(), textureView.getHeight());
+            } else {
+                // Permission was denied. Handle the failure to have permission.
+                Toast.makeText(this, "Camera permission is required", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }
