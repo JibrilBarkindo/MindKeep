@@ -9,12 +9,48 @@
     android:padding="16dp"
 
     tools:context=".Menu_screen">
+<<<<<<< Updated upstream
 <FrameLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+=======
 
 
-    />
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="67dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/volume"
+        android:layout_width="73dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/baseline_volume_down_24"
+        app:layout_constraintEnd_toEndOf="@id/profile"
+        app:layout_constraintStart_toStartOf="@id/profile"
+        app:layout_constraintTop_toBottomOf="@id/profile" />
+
+
+    <ImageView
+        android:id="@+id/logoutButton"
+        android:layout_width="67dp"
+        android:layout_height="61dp"
+        android:contentDescription="logout"
+        android:padding="10dp"
+        android:src="@drawable/logout"
+        app:layout_constraintEnd_toEndOf="@id/volume"
+        app:layout_constraintStart_toStartOf="@id/volume"
+        app:layout_constraintTop_toBottomOf="@id/volume"
+>>>>>>> Stashed changes
+
+
+        />
 
     <ImageView
         android:id="@+id/scrapbook_widget"
@@ -38,7 +74,33 @@
         android:padding="18dp"
         android:text="Diary"
         android:textColor="@color/black"
+<<<<<<< Updated upstream
         android:textSize="20sp" />
+=======
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+       />
+
+    <Button
+        android:id="@+id/scrapbook"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="390dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/architectsdaughter"
+        android:onClick="scrapbookButtonClicked"
+        android:text="Scrapbook"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/flower_btn"
@@ -51,6 +113,7 @@
         android:text="Flower"
         android:fontFamily="@font/architectsdaughter"
         android:textColor="@color/black"
+<<<<<<< Updated upstream
         android:textSize="20sp" />
     <Button
         android:id="@+id/Challenges_btn"
@@ -73,6 +136,37 @@
         android:onClick="scrapbookButtonClicked"
         android:padding="18dp"
         android:text="Scrapbook"
+=======
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/Challenges_btn"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="230dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/architectsdaughter"
+        android:text="Challenges"
+        android:onClick="challengesButtonClicked"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/beige_box"
+        android:layout_width="199dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/beige_box"
+>>>>>>> Stashed changes
         android:fontFamily="@font/architectsdaughter"
         android:textColor="@color/black"
         android:textSize="20sp" />
